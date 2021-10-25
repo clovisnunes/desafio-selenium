@@ -2,6 +2,7 @@ package cnunes.DesafioSelenium;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
@@ -19,8 +20,12 @@ public class PageTasks {
     @BeforeTest
     public void setUp(){
     	System.setProperty("webdriver.chrome.driver", ".\\Driver\\chromedriver.exe");
-    	driver = new ChromeDriver();
-    	driver.manage().window().maximize();
+    	
+    	ChromeOptions options = new ChromeOptions();
+    	options.addArguments("--incognito");
+    	options.addArguments("start-maximized");
+    	
+    	driver = new ChromeDriver(options);
 	}
     
     @BeforeMethod
@@ -41,8 +46,7 @@ public class PageTasks {
     	driver.findElement(pageObject.dropDownLink).click();
     	Select selectObject = new Select(driver.findElement(pageObject.optionsSelectInput));
     	selectObject.selectByValue("2");
-    	// assert/verify property 'selected'
-    	System.out.println("option 2 selected: " + driver.findElement(pageObject.optionSelect("Option 2")).getAttribute("selected"));
+    	
     	assertEquals(driver.findElement(pageObject.optionSelect("Option 2")).getAttribute("selected"), "true");
     }
     
