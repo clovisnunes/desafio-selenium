@@ -38,7 +38,10 @@ public class PageTasks {
         driver.findElement(pageObject.addRemoveElementsLink).click();
         driver.findElement(pageObject.addElementbutton).click();
         
-        assertEquals(driver.findElement(pageObject.deleteButton).getText(), "Delete");
+        String labelEncontrado = driver.findElement(pageObject.deleteButton).getText();
+        String expectedLabel = "Delete";
+        assertEquals(labelEncontrado, expectedLabel,
+        		"O label do botão criado não é '" + expectedLabel + "', label atual: '" + labelEncontrado + "'.");
     }
     
     @Test(description="Desafio 2")
@@ -47,7 +50,9 @@ public class PageTasks {
     	Select selectObject = new Select(driver.findElement(pageObject.optionsSelectInput));
     	selectObject.selectByValue("2");
     	
-    	assertEquals(driver.findElement(pageObject.optionSelect("Option 2")).getAttribute("selected"), "true");
+    	String isSelected = driver.findElement(pageObject.optionSelect("Option 2")).getAttribute("selected");
+    	assertEquals(isSelected, "true",
+    			"A opção selecionada não reflete o texto visível no select. Texto visível esperado: 'Option 2'.");
     }
     
     @Test(description="Desafio 3")
@@ -58,7 +63,14 @@ public class PageTasks {
     	driver.findElement(pageObject.keyPressInput).sendKeys(textToInput);
     	
     	String outputParagraph = driver.findElement(pageObject.lastKeyOutput).getText();
-    	assertEquals(outputParagraph.substring(outputParagraph.lastIndexOf(' ') + 1), textToInput.substring(textToInput.length() - 1).toUpperCase());
+    	String lastKey = outputParagraph.substring(outputParagraph.lastIndexOf(' ') + 1);
+    	String expectedLast = textToInput.substring(textToInput.length() - 1).toUpperCase();
+    	
+    	assertEquals(lastKey, expectedLast,
+    			"O retorno da última tecla digitada não confere com o texto informado, "
+    			+ "texto informado: " + textToInput + 
+    			", última letra do texto informado: " + expectedLast + 
+    			", útlima letra retornada: " + lastKey + ".");
     }
     
     @AfterClass
