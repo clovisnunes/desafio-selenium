@@ -22,7 +22,7 @@ public class Desafio2PageTask {
 
     @BeforeTest
     public void setUp(){
-    	System.setProperty("webdriver.chrome.driver", ".\\Driver\\chromedriver.exe");
+    	System.setProperty("webdriver.chrome.driver", "../../selenium_drivers/chromedriver");
     	
     	ChromeOptions options = new ChromeOptions();
     	options.addArguments("--incognito");

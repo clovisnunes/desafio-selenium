@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="DesafioSelenium">
+
+	<test name="Desafio 1">
+		<classes>
+			<class name="cnunes.DesafioSelenium.PageTasks.Desafio1PageTask">
+				<methods>
+					<include name="desafioAddRemove" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Desafio 2">
+		<classes>
+			<class name="cnunes.DesafioSelenium.PageTasks.Desafio2PageTask">
+				<methods>
+					<include name="desafioSelect" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Desafio 3">
+		<classes>
+			<class name="cnunes.DesafioSelenium.PageTasks.Desafio3PageTask">
+				<methods>
+					<include name="desafioKeyPress" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+</suite>
