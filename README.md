@@ -2,6 +2,8 @@
 
 For the following challenge, the page http://the-internet.herokuapp.com/ will be used. Java, Maven, and Selenium should be used, as well as a testing library (TestNg is recommended). The code should be uploaded to a Git repository for proper validation.
 
+Read this in other languages: [pt-br](README.pt.br.md).
+
 The following criteria will be evaluated:
 1. Project structure (pageObjects, pageTasks); :heavy_check_mark:
 2. Object-oriented programming; :heavy_check_mark:
